@@ -9,15 +9,15 @@
 </head>
 <body>
   <h1>Dev Skills!</h1>
-  <%= JSON.stringify(skills) %>
   <ul>
     <% skills.forEach(skill => { %>
       <li>
-				<%= skill.text %> 
+				<a href="/skills/<%= skill._id %> "><%= skill.text %></a>
 				- 
 				<%= skill.mastered ? 'Mastered' : 'Not definitively good at' %>
 			</li>
     <% }) %>
   </ul>
+  <a href="/skills/new">Add Skill</a>
 </body>
 </html>
