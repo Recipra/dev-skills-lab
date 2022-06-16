@@ -41,9 +41,14 @@ function show(req, res) {
   })
 }
 
+function edit(req, res) {
+  
+}
+
 export {
   index,
   newSkill as new,
   create,
-  show
+  show,
+  edit
 }

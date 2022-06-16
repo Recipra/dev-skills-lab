@@ -7,6 +7,7 @@ const router = Router()
 router.get('/', skillsCtrl.index)
 router.get('/new', skillsCtrl.new)
 router.get('/:id', skillsCtrl.show)
+router.get(':id/edit', skillsCtrl.edit)
 router.post('/', skillsCtrl.create)
 
 export {
