@@ -42,7 +42,8 @@ function show(req, res) {
 }
 
 function update(req, res) {
-  Skill.findByIdAndUpdate(req.params.id, req.body)
+  req.body.mastered = !!req.body.mastered
+  Skill.findByIdAndUpdate(req.params.id, req.body, {new: true})
   .then(skill => {
     console.log(skill)
     res.redirect(`/skills/${req.params.id}`)

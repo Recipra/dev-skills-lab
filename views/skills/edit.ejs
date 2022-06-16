@@ -10,9 +10,11 @@
 <body>
   <h1>Hurry and Edit!</h1>
   <h3><%= skill.text %></h3>
-  <form action="/skills/<%= skill._id %>?_method=PUT" method="POST" autocomplete="off">
-    <input type="text" name="text">
+  <form action="/skills/<%= skill._id %>?_method=PUT" method="POST">
+    <input value="<%= skill.text %>" type="text" name="text">
+    <input type="checkbox" <%= skill.mastered ? 'checked' : '' %> name="mastered">Mastered?<br><br>
     <button type="submit">Update Skill</button>
-  </form>
+  </form><br>
+  <a href="/todos/<%= skill._id %>">Cancel</a>
 </body>
 </html>
