@@ -41,8 +41,30 @@ function show(req, res) {
   })
 }
 
+function update(req, res) {
+  Skill.findByIdAndUpdate(req.params.id, req.body)
+  .then(skill => {
+    console.log(skill)
+    res.redirect(`/skills/${req.params.id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
 function edit(req, res) {
-  
+  Skill.findById(req.params.id)
+  .then(skill => {
+    console.log(skill)
+    res.render('skills/edit', {
+      skill: skill
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
 }
 
 export {
@@ -50,5 +72,6 @@ export {
   newSkill as new,
   create,
   show,
-  edit
+  edit,
+  update
 }
